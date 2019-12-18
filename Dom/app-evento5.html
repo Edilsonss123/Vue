@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{ contador }}</p>
+            <button v-on:click="somar(5, $event)"> Somar</button>
+            <p v-on:mousemove="atualizarPosicaoMouse">
+                Mouse: {{ x }} e {{ y }}
+                <span v-on:mousemove="parar"> PARAR AQUI</span>
+                <span v-on:mousemove.stop=""> PARAR AQUI</span>
+            </p>
+            <a href="http:google.com.br" v-on:click.prevent ="">Google</a>
+            <hr>
+            <p><input type="text" v-on:keyup.enter.alt="exibiLetra"></p>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                somar:function(incremento, event){
+                    this.contador += incremento;
+                },
+                atualizarPosicaoMouse: function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                parar(e){
+                    e.stopPropagation();
+                },
+                exibiLetra(){
+                    console.log(1);
+                }
+            }
+        })
+    </script>
+</html>
