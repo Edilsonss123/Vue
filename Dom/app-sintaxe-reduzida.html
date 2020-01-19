@@ -9,9 +9,11 @@
     <body>
         <div id="app">
             <p>{{ contador }}</p>
-            <p>{{ contador > 10 ? 'Maior do que 10' : 'Menor do que 100' }}</p>
-            <button v-on:click="somar()"> Somar</button>
+            <button @click="somar"> Somar</button>
+            <hr>
+            <input type="text" :value="contador">
         </div>
+        
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -22,8 +24,8 @@
             },
             methods: {
                 somar:function(){
-                    this.contador++;
-                },
+                    this.contador++
+                }
             }
         })
     </script>

@@ -8,26 +8,20 @@
 </head>
 <body>
     <div id="app">
-        <p v-once>{{ titulo }}</p>
-        <p>{{ saudacao() }}</p>
-        <a :href="link">Google</a>
+       <p v-if="logado">Usuário logado : {{ nome }}.</p>
+       <p v-else>Nenhum usuário logado!</p>
+       <button @click="logado = !logado">{{ logado ? 'Sair' : 'Entrar' }} </button>
     </div>
     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
     var app = new Vue({
-    el: '#app',
-    data: {
-        titulo   : 'Usando VueJS!',
-        link     : 'https://google.com.br' 
-    },
-    methods: {
-        saudacao:function(){
-            this.titulo = "olá mundo";
-            return this.titulo
+        el: '#app',
+        data:{
+            nome: 'Maria',
+            logado: false
         }
-    },
     })
 </script>
 </html>

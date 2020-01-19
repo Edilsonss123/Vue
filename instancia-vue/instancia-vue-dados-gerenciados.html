@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{ titulo1 }}
+        {{ novaInfo }} 
+        <button @click="alterar">Alterar</button>
+    </div>
+
+    <script>
+        const vm1 = new Vue({
+            el: '#app',
+            data: {
+                titulo1: 'Título 1'
+            },
+            methods: {
+                alterar(){
+                    this.titulo1 += '???';
+                }
+            }
+        })
+        vm1.novaInfo = 'Olá';
+        // Propriedade criada mas não é reativa
+        console.log(vm1.novaInfo);
+    </script>
+</body>
+</html>
