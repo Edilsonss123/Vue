@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+    <div id="app">
+        <h1 ref="aularef">{{ aula }}</h1>
+        <h2>{{ modulo }}</h2>
+        <button @click="alterarAula">Alterar aula</button>
+        <button @click="alterarModulo">Alterar módulo</button>
+    </div>
+   
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                aula: 'Aula 1',
+                modulo: 'Modulo 2'
+            },
+            methods: {
+                alterarAula(){
+                    this.aula += '#';
+                },
+                alterarModulo(){
+                    this.modulo += '#';
+                }
+            }
+        })
+        vm.$refs.aularef.innerText = 'Alterado diretamento :(';
+    </script>
+</body>
+</html>
