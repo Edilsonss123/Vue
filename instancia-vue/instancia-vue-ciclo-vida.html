@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <button @click="titulo +='#'">Update title</button @click="">
+        <button @click="$destroy()">Destroy</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                titulo: 'Ciclo de Vida'
+            },
+            beforeCreate() {
+                console.log('beforeCreate -> Antes de criar instância Vue');
+            },
+            created() {
+                console.log('created -> criada instância Vue');
+            },
+            beforeMount () {
+                console.log('beforeMount -> antes de montar na DOM');
+            },
+            mounted() {
+                console.log('mounted -> montada  a DOM');
+                
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate -> antes de atualizar a instância Vue');
+                
+            },
+            updated() {
+                console.log('updated -> depois de atualizar a instância Vue');
+                
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy -> antes de deletar  a instância Vue');
+            },
+            destroyed() {
+                console.log('destroyed -> deleta  a instância Vue');
+                
+            },
+        })
+    </script>
+</body>
+</html>
